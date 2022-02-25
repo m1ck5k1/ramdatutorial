@@ -15,12 +15,11 @@ const modal = document.querySelector(`.modal`),
 // Global vars
 let boats, modalImgArr, imgIndex;
 
-/* -------------------------------------------------------*/
-/* X. PULLS DATA FROM HTTPS://API.BOATS.COM, 
-      VIA A CORS PROXY */
-/* -------------------------------------------------------*/
-/* @ref: https://howtocreateapps.com/fetch-and-display-json-html-javascript/
- * @ref: https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe/43881141#43881141
+/**
+ * PULLS DATA FROM HTTPS://API.BOATS.COM, VIA A CORS PROXY
+ * @ref:
+ * https://howtocreateapps.com/fetch-and-display-json-html-javascript/
+ * https://stackoverflow.com/questions/43871637/no-access-control-allow-origin-header-is-present-on-the-requested-resource-whe/43881141#43881141
  */
 const proxyurl = `https://metamorphic-cors.herokuapp.com/`;
 const url = `https://api.boats.com/inventory/search?salesstatus=active,sale%20pending&rows=75&sort=length|desc&key=6fdd67895e324a1a9e5f9faecff2cd`;
@@ -30,10 +29,10 @@ boatHeaders.append(`Accept`, `application/vnd.dmm-v1+json`);
 const requestOptions = {
   method: `GET`,
   headers: boatHeaders,
-  redirect: "follow"
+  redirect: 'follow',
 };
 
-// Fetch API Promise (proxied due to CORS issues)
+/** Fetch API Promise (proxied due to CORS issues) */
 fetch(proxyurl + url, requestOptions)
   .then(function (response) {
     return response.json();
@@ -45,10 +44,9 @@ fetch(proxyurl + url, requestOptions)
     console.log(`error: ` + err);
   });
 
-/* -------------------------------------------------------*/
-/* X. FORMAT RETRIEVED API DATA FROM BOATS.COM AND LOAD
-      INTO CURRENT-INVENTORY WEBPAGE */
-/* -------------------------------------------------------*/
+/**
+ * FORMAT RETRIEVED API DATA FROM BOATS.COM AND LOAD INTO CURRENT-INVENTORY WEBPAGE
+ */
 const loadTableData = (boatData) => {
   const mainContainer = document.getElementById(`myBoatData`);
   boats = Object.values(boatData.results); // CB
@@ -284,8 +282,8 @@ const accordionContent = function () {
 /* X. FUNCTION: SET EVENT LISTENERS */
 /* -------------------------------------------------------*/
 const setEventListeners = () => {
-  let next = document.getElementsByClassName("moveNext")[0],
-    prev = document.getElementsByClassName("movePrev")[0];
+  let next = document.getElementsByClassName('moveNext')[0],
+    prev = document.getElementsByClassName('movePrev')[0];
 
   // Set Image Nav Event Listeners
   next.addEventListener(`click`, moveNext);
@@ -314,11 +312,11 @@ const moveNext = () => {
 
   if (imgIndex === modalImgUriArr.length - 1) {
     imgIndex = 0;
-    boatImg.setAttribute("src", modalImgUriArr[imgIndex]);
+    boatImg.setAttribute('src', modalImgUriArr[imgIndex]);
     boatImgIndex.textContent = imgIndex + 1;
   } else {
     imgIndex++;
-    boatImg.setAttribute("src", modalImgUriArr[imgIndex]);
+    boatImg.setAttribute('src', modalImgUriArr[imgIndex]);
     boatImgIndex.textContent = imgIndex + 1;
   }
 };
@@ -333,11 +331,11 @@ const movePrev = () => {
 
   if (imgIndex === 0) {
     imgIndex = modalImgUriArr.length - 1;
-    boatImg.setAttribute("src", modalImgUriArr[imgIndex]);
+    boatImg.setAttribute('src', modalImgUriArr[imgIndex]);
     boatImgIndex.textContent = imgIndex + 1;
   } else {
     imgIndex--;
-    boatImg.setAttribute("src", modalImgUriArr[imgIndex]);
+    boatImg.setAttribute('src', modalImgUriArr[imgIndex]);
     boatImgIndex.textContent = imgIndex + 1;
   }
 };
