@@ -105,7 +105,7 @@ const loadTableData = (boatData) => {
 };
 
 /* -------------------------------------------------------*/
-/* X. OPEN MODAL WINDOW FUNCTION */
+/* OPEN MODAL WINDOW FUNCTION */
 /* -------------------------------------------------------*/
 /* @author(s): Michael Brewer/Cris Blanco
  * @param (id) - DocumentID of selected boat.
