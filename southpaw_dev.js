@@ -13,14 +13,18 @@ const boatData = require('./southpaw.json');
 const results = boatData.results; // All results
 // console.log(results);
 
-/** Get(s) 1st Boat => 1st Image.Uri  */
-const imageUri = boats[0].Images[0].Uri;
-console.log(imageUri);
+/**
+ * Get(s) => 1st Boat(s) => 1st Image.Uri
+ */
+// const imageUri = results[0].Images[0].Uri;
+// console.log(imageUri);
 
 /**
  * Create Obj(s) of Boat(s)
  */
-console.log('*** Create Object(s) of Boat(s) ***');
+console.log(`
+  \n*** Create Object(s) of Boat(s) ***
+`);
 const boatsToObject = (boat) => {
   const {
     DocumentID,
@@ -43,7 +47,8 @@ const boatsToObject = (boat) => {
     FuelTankCapacityMeasure,
     WaterTankCapacityMeasure,
     HoldingTankCapacityMeasure,
-    Images,
+    Images: [Uri],
+    // imageUri,
   } = boat;
   return {
     DocumentID,
@@ -66,8 +71,9 @@ const boatsToObject = (boat) => {
     FuelTankCapacityMeasure,
     WaterTankCapacityMeasure,
     HoldingTankCapacityMeasure,
-    Images,
+    Uri,
+    // imageUri,
   };
 };
-// const bBoat = R.pipe(R.map(boatsToObject))(results);
-// console.log(bBoat);
+const bBoat = R.pipe(R.map(boatsToObject))(results);
+console.log(bBoat);
