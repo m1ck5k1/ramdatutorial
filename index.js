@@ -14,11 +14,12 @@ const updateTemperature = R.curry((convertFn, city) => {
   return R.mergeRight(city, { temp });
 });
 
-/** Example of Kelvin => Celcius/Fahrenheit Conversion */
-const updatedCities = R.map(updateTemperature(KtoC), cities);
+/** Example: Conversion of Kelvin => Celcius/Fahrenheit Conversion */
+// const updatedCities = R.map(updateTemperature(KtoC), cities);
 // const updatedCities = R.map(updateTemperature(KtoF), cities);
 // console.log(updatedCities);
 
+/** Example: Conversion of Bangkok Temp. */
 const city = cities[0];
 const updatedCity = updateTemperature(KtoC, city);
 // const updatedCity = updateTemperature(KtoF, city);
