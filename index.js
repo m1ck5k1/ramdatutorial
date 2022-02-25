@@ -15,15 +15,14 @@ const updateTemperature = R.curry((convertFn, city) => {
 });
 
 /** Example of Kelvin => Celcius/Fahrenheit Conversion */
-// const updatedCities = R.map(updateTemperature(KtoC), cities);
+const updatedCities = R.map(updateTemperature(KtoC), cities);
 // const updatedCities = R.map(updateTemperature(KtoF), cities);
 // console.log(updatedCities);
 
-// const city = cities[0];
-// const updatedCity = updateTemperature(KtoC, city);
+const city = cities[0];
+const updatedCity = updateTemperature(KtoC, city);
 // const updatedCity = updateTemperature(KtoF, city);
-// Commented in Repo
-// console.log(updatedCity);
+console.log(updatedCity); // Bangkok[0]
 
 const totalCostReducer = (acc, city) => {
   const { cost = 0 } = city;
@@ -44,7 +43,6 @@ const groupByPropReducer = (acc, city) => {
 };
 
 const groupedByProp = R.reduce(groupByPropReducer, {}, cities);
-
 // console.log(groupedByProp);
 
 const calcScore = (city) => {
@@ -60,9 +58,9 @@ const calcScore = (city) => {
 };
 
 // const scoredCities = R.map(calcScore, updatedCities);
-
 // console.log(scoredCities);
 
+/** ReWrite to Generic fn()  */
 const filterByWeather = (city) => {
   const { temp = 0, humidity = 0 } = city;
   return temp > 20 && temp < 30 && humidity > 30 && humidity < 70;
@@ -70,18 +68,15 @@ const filterByWeather = (city) => {
 };
 
 // const filteredCities = R.filter(filterByWeather, scoredCities);
-
 // console.log(R.length(filteredCities));
 
 // const sortedCities = R.sortWith(
 //   [R.descend(city => city.score)],
 //   filteredCities,
 // );
-
 // console.log(sortedCities);
 
 // const top10 = R.take(10, sortedCities);
-
 // console.log(top10);
 // console.log(R.length(top10));
 
@@ -98,7 +93,6 @@ const interestingProps = [
   'Internet',
 ];
 
-/** R.map(updateTemperature(KtoC)), */
 const topCities = R.pipe(
   R.map(updateTemperature(KtoC)), // (KtoC) won't work unless...
   // R.map(updateTemperature(KtoF)),
@@ -110,5 +104,4 @@ const topCities = R.pipe(
   R.prepend(interestingProps),
   table
 )(cities);
-
 console.log(topCities);
