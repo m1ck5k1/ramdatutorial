@@ -20,10 +20,10 @@ const updateTemperature = R.curry((convertFn, city) => {
 // console.log(updatedCities);
 
 /** Example: Conversion of Bangkok Temp. */
-const city = cities[0];
-const updatedCity = updateTemperature(KtoC, city);
+// const city = cities[0];
+// const updatedCity = updateTemperature(KtoC, city);
 // const updatedCity = updateTemperature(KtoF, city);
-console.log(updatedCity); // Bangkok[0]
+// console.log(updatedCity); // Bangkok[0]
 
 const totalCostReducer = (acc, city) => {
   const { cost = 0 } = city;
