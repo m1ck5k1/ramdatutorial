@@ -46,6 +46,9 @@ fetch(proxyurl + url, requestOptions)
 
 /**
  * FORMAT RETRIEVED API DATA FROM BOATS.COM AND LOAD INTO CURRENT-INVENTORY WEBPAGE
+ * @author(s): Michael Brewer/Cris Blanco
+ * @param (boatdata) - Returned JSON Data.
+ * @returns - Div with all Level 1 Boat data/image
  */
 const loadTableData = (boatData) => {
   const mainContainer = document.getElementById(`myBoatData`);
@@ -104,10 +107,9 @@ const loadTableData = (boatData) => {
   div.innerHTML = dataHtml;
 };
 
-/* -------------------------------------------------------*/
-/* OPEN MODAL WINDOW FUNCTION */
-/* -------------------------------------------------------*/
-/* @author(s): Michael Brewer/Cris Blanco
+/**
+ * OPEN MODAL WINDOW FUNCTION
+ * @author(s): Michael Brewer/Cris Blanco
  * @param (id) - DocumentID of selected boat.
  * @returns - JSON data/values of selected boat
  */
