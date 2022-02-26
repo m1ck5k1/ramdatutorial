@@ -49,6 +49,7 @@ const boatsToObject = (boat) => {
     WaterTankCapacityMeasure,
     HoldingTankCapacityMeasure,
     Images: [Image, { Uri }],
+    // Service,
   } = boat;
   return {
     DocumentID,
@@ -73,6 +74,7 @@ const boatsToObject = (boat) => {
     WaterTankCapacityMeasure,
     HoldingTankCapacityMeasure,
     Uri,
+    // Service,
   };
 };
 const bBoat = R.pipe(R.map(boatsToObject))(results);
