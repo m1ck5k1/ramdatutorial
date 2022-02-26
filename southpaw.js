@@ -248,9 +248,9 @@ const openModal = (id) => {
   setEventListeners();
 };
 
-/* -------------------------------------------------------*/
-/* X. FUNCTION: CREATE URI IMAGE ARRAY */
-/* -------------------------------------------------------*/
+/**
+ * CREATE URI IMAGE ARRAY
+ */
 const createModalImgUriArr = (arr) => {
   modalImgArr = new Array();
   for (i = 0; i < arr.length; i++) {
@@ -259,10 +259,9 @@ const createModalImgUriArr = (arr) => {
   }
 };
 
-/* -------------------------------------------------------*/
-/* X. FUNCTION COLLAPSES SECTIONS IN MODAL */
-/* -------------------------------------------------------*/
-/* @ref: https://www.w3schools.com/howto/howto_js_accordion.asp
+/**
+ * COLLAPSES SECTIONS IN MODAL
+ * @ref: https://www.w3schools.com/howto/howto_js_accordion.asp
  */
 const accordionContent = function () {
   let acc = document.getElementsByClassName(`accordion`);
@@ -280,9 +279,9 @@ const accordionContent = function () {
   }
 };
 
-/* -------------------------------------------------------*/
-/* X. FUNCTION: SET EVENT LISTENERS */
-/* -------------------------------------------------------*/
+/**
+ * SET EVENT LISTENERS
+ */
 const setEventListeners = () => {
   let next = document.getElementsByClassName('moveNext')[0],
     prev = document.getElementsByClassName('movePrev')[0];
@@ -299,10 +298,9 @@ const setEventListeners = () => {
   });
 };
 
-/* -------------------------------------------------------*/
-/* X. FUNCTION: NEXT/PREVIOUS NAVIGATION HANDLER(S) */
-/* -------------------------------------------------------*/
-/* @ref: https://medium.com/@marcusmichaels/how-to-build-a-carousel-from-scratch-in-vanilla-js-9a096d3b98c9
+/**
+ * NEXT/PREVIOUS NAVIGATION HANDLER(S)
+ * @ref: https://medium.com/@marcusmichaels/how-to-build-a-carousel-from-scratch-in-vanilla-js-9a096d3b98c9
  */
 const moveNext = () => {
   let modalImgUriArr = modalImgArr,
@@ -342,12 +340,9 @@ const movePrev = () => {
   }
 };
 
-/* -------------------------------------------------------*/
-/* X. FUNCTION CLOSES MODAL WINDOW */
-/* -------------------------------------------------------*/
-/* @ref: https://codepen.io/geoffgraham/pen/LogERe?editors=0110
- * @param x -
- * @returns {none value}
+/**
+ * CLOSE(S) MODAL WINDOW
+ * @ref: https://codepen.io/geoffgraham/pen/LogERe?editors=0110
  */
 const closeModal = () => {
   modal.classList.add(`hidden`);
@@ -356,11 +351,9 @@ const closeModal = () => {
   document.querySelector(`.modal-container`).remove();
 };
 
-/* -------------------------------------------------------*/
-/* X. FUNCTION THAT TRUNCATES A STRING AND APPENDS
-      ELLIPSIS */
-/* -------------------------------------------------------*/
-/* @param text - the text to parse
+/**
+ * TRUNCATES A STRING AND APPENDS ELLIPSIS
+ * @param text - the text to parse
  * @param length - number of character's after which to truncate
  * @returns {truncateText} - the result of the truncation process
  * @ref: https://stackoverflow.com/questions/18146354/how-can-i-cut-a-string-after-x-characters
@@ -375,11 +368,9 @@ const truncText = (text, length) => {
   return text.substr(0, length) + ` \u2026`;
 };
 
-/* -------------------------------------------------------*/
-/* X. FUNCTION THAT PRINTS A NUMBER W/ COMMAS AS THOUSAND
-      SEPARATORS */
-/* -------------------------------------------------------*/
-/* @param price - The value that you want to format with thousand separators.
+/**
+ * PRINTS A NUMBER W/ COMMAS AS THOUSAND SEPARATORS
+ * @param price - The value that you want to format with thousand separators.
  * @returns {number}
  * @ref: https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript/2901298#2901298
  */
@@ -394,12 +385,10 @@ const numWithCommas = (price) => {
   }
 };
 
-/* -------------------------------------------------------*/
-/* X. FUNCTION THAT CAPITALIZES THE FIRST CHARACTER OF A
-      A STRING (CHECKS TYPEOF) */
-/* -------------------------------------------------------*/
-/* @param string - the String to parse
- * @returns {Capitalized - first letter (of each string?)
+/**
+ * CAPITALIZES THE FIRST CHARACTER OF A STRING (CHECKS TYPEOF)
+ * @param string - the String to parse
+ * @returns Capitalized - first letter (of each string?)
  * @ref: https://flaviocopes.com/how-to-uppercase-first-letter-javascript/
  */
 const capFirstLetter = (s) => {
@@ -407,11 +396,9 @@ const capFirstLetter = (s) => {
   return s.charAt(0).toUpperCase() + s.slice(1);
 };
 
-/* -------------------------------------------------------*/
-/* X. FUNCTION THAT REMOVES THE PIPE CHARACTER FROM 
-      RETURNED JSON FIELD */
-/* -------------------------------------------------------*/
-/* @param (s) - the String/Field to parse
+/**
+ * REMOVES THE PIPE CHARACTER FROM RETURNED JSON FIELD
+ * @param (s) - the String/Field to parse
  * @returns {removes `|` AND/OR returns `str`}
  * @ref: https://www.geeksforgeeks.org/how-to-remove-a-character-from-string-in-javascript/
  */
@@ -428,11 +415,9 @@ const tankFormat = (s) => {
   }
 };
 
-/* -------------------------------------------------------*/
-/* X. FUNCTION THAT CHECKS FOR `undefined` && `null`
-      VALUES IN JSON/FIELD DATA */
-/* -------------------------------------------------------*/
-/* @param (obj) - the Object/Field to check
+/**
+ * CHECKS FOR `undefined` && `null` VALUES IN JSON/FIELD DATA
+ * @param (obj) - the Object/Field to check
  * @returns {sanitized `obj`}
  * @ref: https://stackoverflow.com/questions/2647867/how-can-i-determine-if-a-variable-is-undefined-or-null
  */
