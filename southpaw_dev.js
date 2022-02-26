@@ -41,15 +41,16 @@ const boatsToObject = (boat) => {
     BoatBeamMeasure,
     DryWeightMeasure,
     NumberOfEngines,
+    Engines: [{ Engine: Make }],
     TotalEnginePowerQuantity,
     HeadsCountNumeric,
     FuelTankCapacityMeasure,
     WaterTankCapacityMeasure,
     HoldingTankCapacityMeasure,
     // Images,
-    Images: [Image],
-    Engines,
-    // Engines: [Engine],
+    // Images: [Image],
+    Images: [Image, { Uri }],
+    // Engines: [Engine, { EngineMake }],
   } = boat;
   return {
     DocumentID,
@@ -66,13 +67,15 @@ const boatsToObject = (boat) => {
     BoatBeamMeasure,
     DryWeightMeasure,
     NumberOfEngines,
+    // Engines,
+    Make,
     TotalEnginePowerQuantity,
     HeadsCountNumeric,
     FuelTankCapacityMeasure,
     WaterTankCapacityMeasure,
     HoldingTankCapacityMeasure,
-    Image,
-    Engines,
+    Uri,
+    // EngineMake,
   };
 };
 const bBoat = R.pipe(R.map(boatsToObject))(results);
