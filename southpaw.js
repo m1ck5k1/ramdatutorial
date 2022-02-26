@@ -1,10 +1,14 @@
-// Created: 17/12/20
-// Updated: 20/08/21
+/**
+ * Created: 17/12/20
+ * Updated: 26/02/22
+ * Author(s): Michael Brewer & Cris Blanco
+ */
 
-// Disabled for Dev
-// Enabled for Prod
+/**
+ * Disabled for Dev
+ * Enabled for Prod
+ */
 //console.clear();
-
 `use strict`;
 
 // Definition of key Classes for Modal Window
