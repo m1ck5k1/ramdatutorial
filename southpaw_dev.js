@@ -11,13 +11,6 @@ const boatData = require('./southpaw.json');
 
 /** Global(s) */
 const results = boatData.results; // All results
-// console.log(results);
-
-/**
- * Get(s) => 1st Boat(s) => 1st Image.Uri
- */
-// const imageUri = results[0].Images[0].Uri;
-// console.log(imageUri);
 
 /**
  * Create Obj(s) of Boat(s)
