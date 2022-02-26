@@ -1,7 +1,11 @@
 /**
- * Created: 26/02/22
+ * Created: 25/02/22
  * Updated: 26/02/22
- * Author(s): Michael Brewer & Cris Blanco
+ * Author(s): Michael Brewer & mjgpy3
+ *
+ * Ref:
+ * https://courses.knowthen.com/courses/453979/lectures/6977390
+ * https://github.com/mjgpy3/presentations
  */
 
 const R = require('ramda');
@@ -11,16 +15,12 @@ const percentile = require('./percentile');
 
 /**
  * Const Function(s) for Temp. Conversions
- * @param
- * @returns
  */
 const KtoC = (k) => k - 273.15;
 const KtoF = (k) => (k * 9) / 5 - 459.67;
 
 /**
  * Generic fn() to convert Kelvin Temp. > F or C
- * @param
- * @returns
  */
 const updateTemperature = R.curry((convertFn, city) => {
   const temp = Math.round(convertFn(city.temp));
@@ -35,7 +35,9 @@ const updateTemperature = R.curry((convertFn, city) => {
 // const updatedCities = R.map(updateTemperature(KtoF), cities);
 // console.log(updatedCities);
 
-/** Example: Conversion of Bangkok Temp. */
+/**
+ * Example: Conversion of Bangkok Temp.
+ */
 // const city = cities[0];
 // const updatedCity = updateTemperature(KtoC, city);
 // const updatedCity = updateTemperature(KtoF, city);
@@ -141,9 +143,9 @@ const interestingProps = [
  * -> Convert(s) Kelvin Temp > Celcius or Fahrenheit
  * -> Filter Cities based on preferred Temp Range
  * -> Calculate/Generate City Score, based on Cost v Internet Speed
- * -> Sort based on CityScore (High > Low)
+ * -> Sort Cities based on CityScore (High > Low)
  * -> Get the Top 10 Cities (High > Low)
- * -> Convert Cities Obj > Arr
+ * -> Convert Cities Obj(s) > Arr
  * -> Add Calculated Scores
  * -> Output data to CLI as Table
  */
