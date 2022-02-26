@@ -48,7 +48,7 @@ const boatsToObject = (boat) => {
     WaterTankCapacityMeasure,
     HoldingTankCapacityMeasure,
     // Images: [Uri],
-    Images: [Image: {Uri} ],
+    Images: [Image],
   } = boat;
   return {
     DocumentID,
